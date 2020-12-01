@@ -16,7 +16,7 @@ app.listen(process.env.PORT || 3000, function(){
 });
 
 app.post("/", function(req, res){
-  var apiKey = "3b09b0a075b94ea0d9e2a762f42b1d4a-us7";
+ 
   const fname = req.body.firstName;
   const lname = req.body.lastName;
   const email = req.body.email;
@@ -37,10 +37,10 @@ app.post("/", function(req, res){
 
   const jsonData = JSON.stringify(data);
 
-  const url = "https://us7.api.mailchimp.com/3.0/lists/e8056c4b01";
+  const url = "https://us7.api.mailchimp.com/3.0/lists/LISTID";
   const options = {
       method: "POST",
-      auth: "jont:3b09b0a075b94ea0d9e2a762f42b1d4a-us7"
+      auth: "jont:APIKEY"
   };
 
   const request = https.request(url, options, function(response){
@@ -61,5 +61,4 @@ app.post("/", function(req, res){
 app.post("/failure", function(req,res){
   res.redirect("/");
 });
-//list id
-//e8056c4b01
+
